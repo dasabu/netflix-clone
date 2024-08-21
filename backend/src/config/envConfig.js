@@ -7,4 +7,5 @@ export const envConfig = {
   PORT: process.env.PORT || 5001,
   JWT_SECRET: process.env.JWT_SECRET,
   NODE_ENV: process.env.NODE_ENV,
+  TMBD_API_KEY: process.env.TMBD_API_KEY,
 }

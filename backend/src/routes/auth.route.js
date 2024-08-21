@@ -1,26 +1,23 @@
 import { Router } from 'express'
-import {
-  loginController,
-  signupController,
-  logoutController,
-} from '../controllers/auth.controller.js'
-import {
-  loginMiddleware,
-  signupMiddleware,
-} from '../middlewares/auth.middleware.js'
+import authController from '../controllers/auth.controller.js'
+import authMiddleware from '../middlewares/auth.middleware.js'
 
 import { globalErrorWrapper } from '../utils/globalErrorWrapper.js'
 
-const authRoutes = Router()
+const authRouter = Router()
 
-authRoutes.post(
+authRouter.post(
   '/signup',
-  signupMiddleware,
-  globalErrorWrapper(signupController)
+  authMiddleware.signup,
+  globalErrorWrapper(authController.signup)
 )
 
-authRoutes.post('/login', loginMiddleware, globalErrorWrapper(loginController))
+authRouter.post(
+  '/login',
+  authMiddleware.login,
+  globalErrorWrapper(authController.login)
+)
 
-authRoutes.post('/logout', globalErrorWrapper(logoutController))
+authRouter.post('/logout', globalErrorWrapper(authController.logout))
 
-export default authRoutes
+export default authRouter
