@@ -4,7 +4,8 @@ import { EMAIL_REGEX } from '../constants/common.js'
 import { StatusCodes } from 'http-status-codes'
 import { AUTH_MESSAGE } from '../constants/messages.js'
 import ApiError from '../models/api/ApiError.js'
-
+import jwt from 'jsonwebtoken'
+import { envConfig } from '../config/envConfig.js'
 class AuthMiddleware {
   async signup(req, res, next) {
     try {
@@ -78,11 +79,44 @@ class AuthMiddleware {
           AUTH_MESSAGE.INVALID_CREDENTIALS
         )
       }
-      // pass all, assign user to request and move to controller
+
       req.user = user
       next()
     } catch (error) {
       // if error exists, move to error handler
+      next(error)
+    }
+  }
+
+  async authCheck(req, res, next) {
+    try {
+      const access_token = req.cookies['access_token']
+      if (!access_token) {
+        throw new ApiError(
+          StatusCodes.UNAUTHORIZED,
+          AUTH_MESSAGE.UNAUTHORIZED_NO_TOKEN_PROVIDED
+        )
+      }
+
+      const decoded = jwt.verify(access_token, envConfig.JWT_SECRET)
+      if (!decoded) {
+        throw new ApiError(
+          StatusCodes.UNAUTHORIZED,
+          AUTH_MESSAGE.UNAUTHORIZED_INVALID_TOKEN
+        )
+      }
+
+      const user = await User.findById(decoded.userId).select('-password')
+      if (!user) {
+        throw new ApiError(StatusCodes.NOT_FOUND, AUTH_MESSAGE.USER_NOT_FOUND)
+      }
+
+      // pass all, assign user to request and move to controller
+      if (!req.user) {
+        req.user = user
+      }
+      next()
+    } catch (error) {
       next(error)
     }
   }

@@ -10,3 +10,14 @@ export const MOVIE_URL = {
   MOVIES_BY_CATEGORY: (category) =>
     `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`,
 }
+
+export const TV_URL = {
+  TRENDING_TV: 'https://api.themoviedb.org/3/trending/tv/day?language=en-US',
+  TV_TRAILERS: (id) =>
+    `https://api.themoviedb.org/3/tv/${id}/videos?language=en-US`,
+  TV_DETAILS: (id) => `https://api.themoviedb.org/3/tv/${id}?language=en-US/`,
+  SIMILAR_TV: (id) =>
+    `https://api.themoviedb.org/3/tv/${id}/similar?language=en-US&page=1`,
+  TV_BY_CATEGORY: (category) =>
+    `https://api.themoviedb.org/3/tv/${category}?language=en-US&page=1`,
+}

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { envConfig } from '../config/envConfig.js'
 import ApiError from '../models/api/ApiError.js'
 import { StatusCodes } from 'http-status-codes'
-import { MOVIE_MESSAGE } from '../constants/messages.js'
+import { AXIOS_ERROR_RESOURCE_NOT_FOUND } from '../constants/messages.js'
 
 export const fetchFromTMDB = async (url) => {
   const config = {
@@ -18,7 +18,7 @@ export const fetchFromTMDB = async (url) => {
     .catch((error) => {
       throw new ApiError(
         StatusCodes.NOT_FOUND || error.status,
-        MOVIE_MESSAGE.AXIOS_ERROR_RESOURCE_NOT_FOUND || error.message
+        AXIOS_ERROR_RESOURCE_NOT_FOUND || error.message
       )
     })
 

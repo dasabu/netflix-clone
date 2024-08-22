@@ -14,11 +14,13 @@ export const AUTH_MESSAGE = {
   LOGOUT_SUCCESSFULLY: 'Logout sucessfully',
   // Overall
   AN_UNEXPECTED_ERROR_OCCURED: 'An unexpected error occurred',
+  // Authentication check
+  UNAUTHORIZED_NO_TOKEN_PROVIDED: 'Unauthorized - No token provided',
+  UNAUTHORIZED_INVALID_TOKEN: 'Unauthorized - Invalid token',
+  USER_NOT_FOUND: 'User not found',
 }
 
 export const MOVIE_MESSAGE = {
-  // Overall
-  AXIOS_ERROR_RESOURCE_NOT_FOUND: 'Axios Error: Resource not found',
   // Trending movies
   UNABLE_TO_FIND_THE_MOVIE: 'Unable to find the movie',
   GET_THE_TRENDING_MOVIE_SUCCESSFULLY: 'Get the trending movie successfully',
@@ -35,3 +37,22 @@ export const MOVIE_MESSAGE = {
   GET_MOVIES_BY_CATEGORY_SUCCESSFULLY: 'Get movies by category successfully',
   UNABLE_TO_GET_MOVIES_BY_CATEGORY: 'Unable to get movies by category',
 }
+export const TV_MESSAGE = {
+  // Trending movies
+  UNABLE_TO_FIND_THE_TV: 'Unable to find the TV',
+  GET_THE_TRENDING_TV_SUCCESSFULLY: 'Get the trending TV successfully',
+  // Movie trailers
+  GET_TV_TRAILERS_SUCCESSFULLY: 'Get TV trailers successfully',
+  UNABLE_TO_GET_TV_TRAILERS: 'Unable to get TV trailers',
+  // Movie details
+  GET_TV_DETAILS_SUCCESSFULLY: 'Get TV details successfully',
+  UNABLE_TO_GET_TV_DETAILS: 'Unable to get TV details',
+  // Similar movies
+  GET_SIMILAR_TV_SUCCESSFULLY: 'Get similar TV successfully',
+  UNABLE_TO_GET_SIMILAR_TV: 'Unable to get similar TV',
+  // Movies by Category
+  GET_TV_BY_CATEGORY_SUCCESSFULLY: 'Get TV by category successfully',
+  UNABLE_TO_GET_TV_BY_CATEGORY: 'Unable to get TV by category',
+}
+
+export const AXIOS_ERROR_RESOURCE_NOT_FOUND = 'Axios Error: Resource not found'

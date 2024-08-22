@@ -1,5 +1,5 @@
 import ApiError from '../models/api/ApiError.js'
-import { fetchFromTMDB } from '../services/movie.service.js'
+import { fetchFromTMDB } from '../utils/fetchFromTMDB.js'
 import { MOVIE_MESSAGE } from '../constants/messages.js'
 import { MOVIE_URL } from '../constants/url.js'
 import { StatusCodes } from 'http-status-codes'
@@ -82,7 +82,7 @@ class MovieController {
   async getSimilarMovies(req, res) {
     const { id } = req.params
     const similarMovies = await fetchFromTMDB(MOVIE_URL.SIMILAR_MOVIES(id))
-    if (movies) {
+    if (similarMovies) {
       res
         .status(StatusCodes.OK)
         .json(
