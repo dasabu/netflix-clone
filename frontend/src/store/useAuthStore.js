@@ -10,15 +10,40 @@ export const useAuthStore = create((set) => ({
   isLoggingIn: false,
 
   signup: async (credentials) => {
+    // credentials = { email, password, username }
     set({ isSigningUp: true })
     try {
       const response = await axios.post('/api/v1/auth/signup', credentials)
-      set({ user: response.data.data, isSigningUp: false })
+      set({
+        user: response.data.data,
+        isSigningUp: false,
+      })
       toast.success('Account created successfully')
     } catch (error) {
-      console.log('signup error:', error.response.data.message)
-      set({ isSigningUp: false, user: null })
+      set({
+        isSigningUp: false,
+        user: null,
+      })
       toast.error(error.response.data.message || 'Signup failed')
+    }
+  },
+
+  login: async (credentials) => {
+    // credentials = { email, password }
+    set({ isLoggingIn: true })
+    try {
+      const response = await axios.post('/api/v1/auth/login', credentials)
+      set({
+        user: response.data.data,
+        isLoggingIn: false,
+      })
+      toast.success('Login successfully')
+    } catch (error) {
+      set({
+        user: null,
+        isLoggingIn: false,
+      })
+      toast.error(error.response.data.message || 'Login failed')
     }
   },
 }))
