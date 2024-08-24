@@ -54,5 +54,13 @@ export const TV_MESSAGE = {
   GET_TV_BY_CATEGORY_SUCCESSFULLY: 'Get TV by category successfully',
   UNABLE_TO_GET_TV_BY_CATEGORY: 'Unable to get TV by category',
 }
-
+export const SEARCH_MESSAGE = {
+  RESOURCE_NOT_FOUND: 'Resource not found',
+  GET_RESOURCE_SUCCESSFULLY: 'Get resource successfully',
+  UNABLE_TO_GET_SEARCH_HISTORY: 'Unable to get search history',
+  REMOVE_ITEM_IN_SEARCH_HISTORY_SUCCESSFULLY:
+    'Remove item in search history successfully',
+  UNABLE_TO_REMOVE_ITEM_IN_SEARCH_HISTORY:
+    'Unable to remove item in search history',
+}
 export const AXIOS_ERROR_RESOURCE_NOT_FOUND = 'Axios Error: Resource not found'

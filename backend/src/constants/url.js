@@ -21,3 +21,12 @@ export const TV_URL = {
   TV_BY_CATEGORY: (category) =>
     `https://api.themoviedb.org/3/tv/${category}?language=en-US&page=1`,
 }
+
+export const SEARCH_URL = {
+  PERSON: (query) =>
+    `https://api.themoviedb.org/3/search/person?query=${query}&include_adult=false&language=en-US&page=1`,
+  MOVIE: (query) =>
+    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+  TV: (query) =>
+    `https://api.themoviedb.org/3/search/tv?query=${query}&include_adult=false&language=en-US&page=1`,
+}

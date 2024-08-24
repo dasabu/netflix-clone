@@ -112,9 +112,7 @@ class AuthMiddleware {
       }
 
       // pass all, assign user to request and move to controller
-      if (!req.user) {
-        req.user = user
-      }
+      req.user = user
       next()
     } catch (error) {
       next(error)
