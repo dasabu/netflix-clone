@@ -60,7 +60,6 @@ class AuthController {
 
   async authCheck(req, res) {
     // return current authenticated user data
-    console.log(req.user)
     if (req.user) {
       res
         .status(StatusCodes.OK)

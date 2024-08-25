@@ -5,7 +5,7 @@ import { create } from 'zustand'
 export const useAuthStore = create((set) => ({
   user: null,
   isSigningUp: false,
-  isCheckingAuth: true,
+  isCheckingAuth: false,
   isLoggingOut: false,
   isLoggingIn: false,
 
@@ -66,13 +66,11 @@ export const useAuthStore = create((set) => ({
     set({ isCheckingAuth: true })
     try {
       const response = await axios.get('/api/v1/auth/auth-check')
-
       set({
         user: response.data.data,
         isCheckingAuth: false,
       })
     } catch (error) {
-      console.log('authCheck error: ', error)
       set({
         user: null,
         isCheckingAuth: false,
