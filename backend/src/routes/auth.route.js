@@ -20,4 +20,10 @@ authRouter.post(
 
 authRouter.post('/logout', globalErrorWrapper(authController.logout))
 
+authRouter.get(
+  '/auth-check',
+  authMiddleware.authCheck,
+  globalErrorWrapper(authController.authCheck)
+)
+
 export default authRouter

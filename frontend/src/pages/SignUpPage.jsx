@@ -93,7 +93,7 @@ const SignUpPage = () => {
               className='w-full text-white font-semibold bg-red-600 p-2 rounded-md hover:bg-red-700'
               disabled={isSigningUp}
             >
-              Sign Up
+              {isSigningUp ? 'Signing Up...' : 'Sign Up'}
             </button>
           </form>
 

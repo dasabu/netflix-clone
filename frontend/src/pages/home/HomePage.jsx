@@ -5,11 +5,9 @@ import AuthScreen from './AuthScreen'
 import HomeScreen from './HomeScreen'
 
 const HomePage = () => {
-  const user = true
-  // const { user } = useAuthStore()
+  const { user } = useAuthStore()
 
-  if (user) return <AuthScreen />
-  else return <HomeScreen />
+  return <>{user ? <HomeScreen /> : <AuthScreen />}</>
 }
 
 export default HomePage

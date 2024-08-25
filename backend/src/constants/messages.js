@@ -18,6 +18,7 @@ export const AUTH_MESSAGE = {
   UNAUTHORIZED_NO_TOKEN_PROVIDED: 'Unauthorized - No token provided',
   UNAUTHORIZED_INVALID_TOKEN: 'Unauthorized - Invalid token',
   USER_NOT_FOUND: 'User not found',
+  GET_AUTHENTICATED_USER_SUCCESSFULLY: 'Get authenticated user successfully',
 }
 
 export const MOVIE_MESSAGE = {

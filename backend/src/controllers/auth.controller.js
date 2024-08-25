@@ -57,6 +57,31 @@ class AuthController {
       .status(StatusCodes.OK)
       .json(new ApiResponse(StatusCodes.OK, AUTH_MESSAGE.LOGOUT_SUCCESSFULLY))
   }
+
+  async authCheck(req, res) {
+    // return current authenticated user data
+    console.log(req.user)
+    if (req.user) {
+      res
+        .status(StatusCodes.OK)
+        .json(
+          new ApiResponse(
+            StatusCodes.OK,
+            AUTH_MESSAGE.GET_AUTHENTICATED_USER_SUCCESSFULLY,
+            req.user
+          )
+        )
+    } else {
+      res
+        .status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json(
+          new ApiError(
+            StatusCodes.INTERNAL_SERVER_ERROR,
+            AUTH_MESSAGE.AN_UNEXPECTED_ERROR_OCCURED
+          )
+        )
+    }
+  }
 }
 
 const authController = new AuthController()

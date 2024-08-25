@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const navigate = useNavigate()
   const { isLoggingIn, login } = useAuthStore()
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
-    login({ email, password })
+    await login({ email, password })
   }
 
   return (
@@ -69,7 +70,7 @@ const LoginPage = () => {
               className='w-full text-white font-semibold bg-red-600 p-2 rounded-md hover:bg-red-700'
               disabled={isLoggingIn}
             >
-              Login
+              {isLoggingIn ? 'Logging In...' : 'Login'}
             </button>
           </form>
 
