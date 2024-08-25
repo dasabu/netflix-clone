@@ -1,10 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+
 import { useAuthStore } from '../store/useAuthStore.js'
 
 const SignUpPage = () => {
-  const [email, setEmail] = useState('')
+  // get email from homepage (un-auth)
+  const initialEmail = useLocation().state?.email || ''
+
+  const [email, setEmail] = useState(initialEmail)
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
 
