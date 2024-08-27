@@ -8,7 +8,7 @@
 - **Programming Language**: JavaScript
 - **Frontend**: ReactJS (w/ TailwindCSS and zustand)
 - **Backend**: NodeJS/Express.js
-- **Database**: MongoDB
+- **Database**: MongoDB (Mongoose)
 
 ## Features
 
@@ -38,7 +38,7 @@ TMDB_API_KEY=
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/hiimdaxd/netflix-clone
    ```
 
 2. **Start the backend**
