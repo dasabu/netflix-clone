@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 import Navbar from '../components/Navbar'
 import { SMALL_IMG_BASE_URL } from '../utils/constants'
+import { useMediaStore } from '../store/media'
 
 function formatDate(dateString) {
   const date = new Date(dateString)
@@ -32,6 +33,8 @@ function formatDate(dateString) {
 const SearchHistoryPage = () => {
   const [searchHistory, setSearchHistory] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+
+  const { setMediaType } = useMediaStore()
 
   useEffect(() => {
     const getSearchHistory = async () => {
@@ -72,6 +75,7 @@ const SearchHistoryPage = () => {
     )
   }
 
+  // Nothing in search history
   if (searchHistory?.length === 0) {
     return (
       <div className='bg-black min-h-screen text-white'>
@@ -105,60 +109,121 @@ const SearchHistoryPage = () => {
       <div className='bg-black text-white min-h-screen'>
         <Navbar />
         <div className='max-w-6xl mx-auto px-6 py-12'>
+          {/* Title */}
           <h1 className='mt-6 text-center text-3xl font-bold mb-8'>
             Search History
           </h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-            {searchHistory?.map((entry) => (
-              <Link
-                to={`/watch/${entry.id}`}
-                key={entry.id}
-                className='min-w-0 bg-gray-800 p-4 rounded-lg flex items-start transition transform hover:scale-105 hover:bg-gray-700 duration-300 ease-in-out shadow-lg'
-              >
-                <img
-                  src={SMALL_IMG_BASE_URL + entry.image}
-                  alt='History image'
-                  className='w-16 h-16 rounded-full object-cover mr-4 flex-shrink-0'
-                  style={{ maxWidth: '64px' }}
-                />
-                <div className='flex flex-col flex-grow mr-4 min-w-0'>
-                  <span
-                    className='text-white text-lg truncate flex-grow max-w-[60%]'
-                    style={{
-                      maxWidth: '150px',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    }}
-                  >
-                    {entry.title}
-                  </span>
-                  <span className='text-gray-400 text-sm'>
-                    {formatDate(entry.createdAt)}
-                  </span>
-                </div>
-
-                <span
-                  className={`py-1 px-3 text-center rounded-full text-sm font-medium ml-auto flex-shrink-0 ${
-                    entry.searchType === 'movie'
-                      ? 'bg-red-600'
-                      : entry.searchType === 'tv'
-                      ? 'bg-blue-600'
-                      : 'bg-green-600'
-                  }`}
+            {/* 
+              - Movie or TV card: can navigate to the corresponding Watch Page when clicking into it
+              - Person card: can navigate to the corresponding Watch Page when clicking into it
+             */}
+            {searchHistory?.map((entry) =>
+              entry.searchType !== 'person' ? (
+                <Link
+                  to={`/watch/${entry.id}`}
+                  key={entry.id}
+                  className='min-w-0 bg-gray-800 p-4 rounded-lg flex items-start transition transform hover:scale-105 hover:bg-gray-700 duration-300 ease-in-out shadow-lg'
+                  onClick={() => setMediaType(entry.searchType)}
                 >
-                  {entry.searchType.toUpperCase()}
-                </span>
-                <Trash
-                  className='ml-4 cursor-pointer text-gray-400 hover:text-red-600 transition duration-200 ease-in-out flex-shrink-0'
-                  style={{ width: '24px', height: '24px' }}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleDelete(entry)
-                  }}
-                />
-              </Link>
-            ))}
+                  <img
+                    src={SMALL_IMG_BASE_URL + entry.image}
+                    alt='History image'
+                    className='w-16 h-16 rounded-full object-cover mr-4 flex-shrink-0'
+                    style={{ maxWidth: '64px' }}
+                  />
+                  {/* Circle image */}
+                  <div className='flex flex-col flex-grow mr-4 min-w-0 justify-center'>
+                    <span
+                      className='text-white text-sm truncate flex-grow max-w-[60%]'
+                      style={{
+                        maxWidth: '150px',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
+                      {entry.title || entry.name}
+                    </span>
+                    <span className='text-gray-400 text-sm'>
+                      {formatDate(entry.createdAt)}
+                    </span>
+                  </div>
+                  {/* Classfication tags */}
+                  <span
+                    className={`py-1 px-3 text-center rounded-full text-sm font-medium ml-auto flex-shrink-0 ${
+                      entry.searchType === 'movie'
+                        ? 'bg-red-600'
+                        : entry.searchType === 'tv'
+                        ? 'bg-blue-600'
+                        : 'bg-green-600'
+                    }`}
+                  >
+                    {entry.searchType.toUpperCase()}
+                  </span>
+                  {/* Delete button */}
+                  <Trash
+                    className='ml-4 cursor-pointer text-gray-400 hover:text-red-600 transition duration-200 ease-in-out flex-shrink-0'
+                    style={{ width: '24px', height: '24px' }}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleDelete(entry)
+                    }}
+                  />
+                </Link>
+              ) : (
+                <div
+                  key={entry.id}
+                  className='min-w-0 bg-gray-800/60 p-4 rounded-lg flex items-start hover:cursor-not-allowed'
+                  onClick={() => setMediaType(entry.searchType)}
+                >
+                  <img
+                    src={SMALL_IMG_BASE_URL + entry.image}
+                    alt='History image'
+                    className='w-16 h-16 rounded-full object-cover mr-4 flex-shrink-0'
+                    style={{ maxWidth: '64px' }}
+                  />
+                  {/* Circle image */}
+                  <div className='flex flex-col flex-grow mr-4 min-w-0 justify-center'>
+                    <span
+                      className='text-white text-sm truncate flex-grow max-w-[60%]'
+                      style={{
+                        maxWidth: '150px',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
+                      {entry.title || entry.name}
+                    </span>
+                    <span className='text-gray-400 text-sm'>
+                      {formatDate(entry.createdAt)}
+                    </span>
+                  </div>
+                  {/* Classfication tags */}
+                  <span
+                    className={`py-1 px-3 text-center rounded-full text-sm font-medium ml-auto flex-shrink-0 ${
+                      entry.searchType === 'movie'
+                        ? 'bg-red-600'
+                        : entry.searchType === 'tv'
+                        ? 'bg-blue-600'
+                        : 'bg-green-600'
+                    }`}
+                  >
+                    {entry.searchType.toUpperCase()}
+                  </span>
+                  {/* Delete button */}
+                  <Trash
+                    className='ml-4 cursor-pointer text-gray-400 hover:text-red-600 transition duration-200 ease-in-out flex-shrink-0'
+                    style={{ width: '24px', height: '24px' }}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleDelete(entry)
+                    }}
+                  />
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>

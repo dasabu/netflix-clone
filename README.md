@@ -1,6 +1,7 @@
 # Netflix Clone Application
 
 A Netflix Clone Application built using the MERN Stack for learning purposes.
+<img width="1455" alt="Screenshot 2024-08-27 at 20 08 34" src="https://github.com/user-attachments/assets/c760ede3-89a5-46d4-a13a-b8e5d0f135d5">
 
 ## Tech Stack
 

@@ -24,8 +24,8 @@ class SearchController {
         $push: {
           searchHistory: {
             id: response.results[0].id,
-            image: response.results[0].poster_path,
-            title: response.results[0].title,
+            image: response.results[0].profile_path,
+            title: response.results[0].name,
             searchType: 'person',
             createdAt: new Date(),
           },
@@ -91,7 +91,7 @@ class SearchController {
           searchHistory: {
             id: response.results[0].id,
             image: response.results[0].poster_path,
-            title: response.results[0].title,
+            title: response.results[0].name,
             searchType: 'tv',
             createdAt: new Date(),
           },
@@ -111,6 +111,7 @@ class SearchController {
 
   async getSearchHistory(req, res) {
     const data = req.user?.searchHistory
+    console.log(data)
     if (!data) {
       res
         .status(StatusCodes.NOT_FOUND)

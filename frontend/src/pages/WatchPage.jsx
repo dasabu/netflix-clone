@@ -229,7 +229,7 @@ const WatchPage = () => {
             </h3>
 
             <div
-              className='flex overflow-x-scroll scrollbar-hide gap-4'
+              className='flex overflow-x-scroll scrollbar-hide gap-4 pb-8'
               ref={scrollContainerRef}
             >
               {similarMedia.map((media) => (
