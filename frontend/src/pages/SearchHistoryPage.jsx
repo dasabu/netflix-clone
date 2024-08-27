@@ -104,7 +104,7 @@ const SearchHistoryPage = () => {
     return (
       <div className='bg-black text-white min-h-screen'>
         <Navbar />
-        <div className='max-w-6xl mx-auto px-4 py-8'>
+        <div className='max-w-6xl mx-auto px-6 py-12'>
           <h1 className='mt-6 text-center text-3xl font-bold mb-8'>
             Search History
           </h1>
@@ -152,7 +152,10 @@ const SearchHistoryPage = () => {
                 <Trash
                   className='ml-4 cursor-pointer text-gray-400 hover:text-red-600 transition duration-200 ease-in-out flex-shrink-0'
                   style={{ width: '24px', height: '24px' }}
-                  onClick={() => handleDelete(entry)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleDelete(entry)
+                  }}
                 />
               </Link>
             ))}

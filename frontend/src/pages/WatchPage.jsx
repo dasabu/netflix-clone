@@ -152,7 +152,7 @@ const WatchPage = () => {
         <Navbar />
         {/* Button to control trailers */}
         {trailers.length > 0 && (
-          <div className='flex justify-between items-center px-4 mt-8'>
+          <div className='flex justify-between items-center px-4 mt-4'>
             <button
               className={`bg-gray-500/70 hover:bg-gray-500 text-white py-2 px-4 rounded ${
                 currentTrailerIndex === 0 ? 'cursor-not-allowed opacity-50' : ''
@@ -174,7 +174,7 @@ const WatchPage = () => {
           </div>
         )}
         {/* Trailer */}
-        <div className='aspect-videok sm:px-20 md:px-32 mb-20'>
+        <div className='aspect-videok sm:px-20 md:px-32 mb-20 mt-4'>
           {trailers.length > 0 && (
             <ReactPlayer
               controls={true}
@@ -223,13 +223,13 @@ const WatchPage = () => {
         </div>
         {/* Similar Movies/TV Shows */}
         {similarMedia.length > 0 && (
-          <div className='mt-4 max-w-5xl mx-auto relative'>
+          <div className='mt-4 max-w-6xl mx-auto relative px-10'>
             <h3 className='text-3xl font-bold py-10'>
               Similar Movies/TV Shows
             </h3>
 
             <div
-              className='flex overflow-x-scroll scrollbar-hide gap-4 pb-4'
+              className='flex overflow-x-scroll scrollbar-hide gap-4'
               ref={scrollContainerRef}
             >
               {similarMedia.map((media) => (
