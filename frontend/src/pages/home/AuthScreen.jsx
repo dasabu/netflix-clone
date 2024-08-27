@@ -13,17 +13,17 @@ const AuthScreen = () => {
   }
 
   return (
-    <div className='hero-bg relative'>
+    <div className='hero-bg min-h-screen w-full'>
       {/* Navbar */}
-      <header className='max-w-6xl mx-auto flex items-center justify-between p-5 pb-10'>
+      <header className='md:max-w-6xl mx-auto flex items-center justify-between md:p-10 pb-10 p-6'>
         <img
           src='/netflix-logo.png'
           alt='Netflix Logo'
-          className='w-32 md:w-52'
+          className='w-32 md:w-40'
         />
         <Link
           to={'/login'}
-          className='py-2 px-4 text-lg text-white bg-red-600 hover:bg-red-700 font-medium rounded'
+          className='px-4 py-1 text-base text-white bg-red-600 hover:bg-red-700 font-medium rounded-md'
         >
           Login
         </Link>
@@ -31,11 +31,11 @@ const AuthScreen = () => {
 
       {/* hero section */}
       <div className='text-white flex flex-col items-center justify-center text-center mx-auto py-40 max-w-6xl gap-4'>
-        <h1 className='text-4xl md:text-6xl font-bold mb-4'>
+        <h1 className='md:max-w-4xl px-10 text-4xl sm:text-4xl md:text-6xl font-bold mb-4'>
           Unlimited movies, TV shows, and more
         </h1>
-        <p className='text-lg'>Watch anywhere. Cancel anytime.</p>
-        <p className='mb-4'>
+        <p className='text-lg px-10'>Watch anywhere. Cancel anytime.</p>
+        <p className='mb-4 px-10'>
           Ready to watch? Enter your email to create or restart your membership.
         </p>
 

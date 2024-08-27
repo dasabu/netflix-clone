@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useAuthStore } from '../../store/useAuthStore'
+import { useAuthStore } from '../../store/auth'
 import AuthScreen from './AuthScreen'
 import HomeScreen from './HomeScreen'
 

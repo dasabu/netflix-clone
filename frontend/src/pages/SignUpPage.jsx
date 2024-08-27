@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
-import { useAuthStore } from '../store/useAuthStore.js'
+import { useAuthStore } from '../store/auth.js'
 
 const SignUpPage = () => {
   // get email from homepage (un-auth)
@@ -22,12 +22,12 @@ const SignUpPage = () => {
 
   return (
     <div className='hero-bg h-screen w-screen'>
-      <header className='max-w-6xl mx-auto flex items-center justify-between p-4'>
+      <header className='max-w-6xl mx-auto flex items-center justify-between md:p-10 pb-10 p-6'>
         <Link to={'/'}>
           <img
             src='/netflix-logo.png'
             alt='netflix-clone-logo'
-            className='w-52'
+            className='md:w-40 w-32'
           ></img>
         </Link>
       </header>

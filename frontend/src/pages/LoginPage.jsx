@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuthStore } from '../store/useAuthStore'
+import { useAuthStore } from '../store/auth'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
@@ -15,13 +15,13 @@ const LoginPage = () => {
   }
 
   return (
-    <div className='hero-bg h-screen w-screen'>
-      <header className='max-w-6xl mx-auto flex items-center justify-between p-4'>
+    <div className='hero-bg relative h-screen'>
+      <header className='max-w-6xl mx-auto flex items-center justify-between md:p-10 pb-10 p-6'>
         <Link to={'/'}>
           <img
             src='/netflix-logo.png'
             alt='netflix-clone-logo'
-            className='w-52'
+            className='md:w-40 w-32'
           ></img>
         </Link>
       </header>
