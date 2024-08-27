@@ -1,0 +1,61 @@
+# Netflix Clone Application
+
+A Netflix Clone Application built using the MERN Stack for learning purposes.
+
+## Tech Stack
+
+- **Programming Language**: JavaScript
+- **Frontend**: ReactJS (w/ TailwindCSS and zustand)
+- **Backend**: NodeJS/Express.js
+- **Database**: MongoDB
+
+## Features
+
+- **Authentication with JWT (Stateless)**
+- **Responsive UI**
+- **Fetching data (movies and TV shows) from TMDB**
+- **Searching for movies, TV shows and Person**
+- **Watching trailers**
+- **Tracking search history**
+- **Get Similar Movies/TV Shows**
+- **And Many More Cool Features**
+
+## Setup .env File
+
+To run this application, you need to set up a `.env` file in the root directory with the following variables:
+
+```bash
+MONGODB_URI=
+PORT=
+NODE_ENV=
+JWT_SECRET=
+TMDB_API_KEY=
+```
+
+## Run This App Locally
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   ```
+
+2. **Start the backend**
+
+   ```bash
+   cd backend
+   npm run dev
+   ```
+
+   The backend will be hosted at port `5001`.
+
+3. **Start the frontend**
+
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+
+   The backend will be hosted at port `3001`.
+
+## Enjoy the movies!

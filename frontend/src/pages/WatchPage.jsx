@@ -174,7 +174,7 @@ const WatchPage = () => {
           </div>
         )}
         {/* Trailer */}
-        <div className='aspect-videok sm:px-20 md:px-32 mb-20 mt-4'>
+        <div className='aspect-videok sm:px-20 md:px-32 px-4 mb-20 mt-4'>
           {trailers.length > 0 && (
             <ReactPlayer
               controls={true}
