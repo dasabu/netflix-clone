@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import searchController from '../controllers/search.controller.js'
 
+import searchController from '../controllers/search.controller.js'
 import { globalErrorWrapper } from '../utils/globalErrorWrapper.js'
 
 const searchRouter = Router()

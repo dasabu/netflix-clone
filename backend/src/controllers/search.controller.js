@@ -1,4 +1,5 @@
 import { StatusCodes } from 'http-status-codes'
+
 import ApiError from '../models/api/ApiError.js'
 import { SEARCH_URL } from '../constants/url.js'
 import { fetchFromTMDB } from '../utils/fetchFromTMDB.js'

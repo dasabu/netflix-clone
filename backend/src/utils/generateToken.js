@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-import { envConfig } from '../config/envConfig.js'
+import { envConfig } from '../config/env.config.js'
 
 export const generateTokenAndSetCookie = (userId, res) => {
   const access_token = jwt.sign({ userId }, envConfig.JWT_SECRET, {

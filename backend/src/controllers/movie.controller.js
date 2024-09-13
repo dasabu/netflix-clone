@@ -1,8 +1,9 @@
+import { StatusCodes } from 'http-status-codes'
+
 import ApiError from '../models/api/ApiError.js'
 import { fetchFromTMDB } from '../utils/fetchFromTMDB.js'
 import { MOVIE_MESSAGE } from '../constants/messages.js'
 import { MOVIE_URL } from '../constants/url.js'
-import { StatusCodes } from 'http-status-codes'
 import { ApiResponse } from '../models/api/ApiResponse.js'
 
 class MovieController {

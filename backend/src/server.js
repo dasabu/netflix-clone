@@ -6,8 +6,8 @@ import movieRoutes from './routes/movie.route.js'
 import tvRoutes from './routes/tv.route.js'
 import searchRoutes from './routes/search.route.js'
 
-import { envConfig } from './config/envConfig.js'
-import { connectDB } from './config/db.js'
+import { envConfig } from './config/env.config.js'
+import { connectDB } from './config/db.config.js'
 import { errorHandler } from './middlewares/error.middleware.js'
 import authMiddleware from './middlewares/auth.middleware.js'
 

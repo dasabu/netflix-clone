@@ -1,11 +1,12 @@
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import { StatusCodes } from 'http-status-codes'
+
 import { User } from '../models/user.model.js'
 import { EMAIL_REGEX } from '../constants/common.js'
-import { StatusCodes } from 'http-status-codes'
 import { AUTH_MESSAGE } from '../constants/messages.js'
 import ApiError from '../models/api/ApiError.js'
-import jwt from 'jsonwebtoken'
-import { envConfig } from '../config/envConfig.js'
+import { envConfig } from '../config/env.config.js'
 class AuthMiddleware {
   async signup(req, res, next) {
     try {

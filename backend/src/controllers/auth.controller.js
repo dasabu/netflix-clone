@@ -1,5 +1,6 @@
-import { createNewUser } from '../services/auth.service.js'
 import { StatusCodes } from 'http-status-codes'
+
+import { createNewUser } from '../services/auth.service.js'
 import { AUTH_MESSAGE } from '../constants/messages.js'
 import { generateTokenAndSetCookie } from '../utils/generateToken.js'
 import ApiError from '../models/api/ApiError.js'

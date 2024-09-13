@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import movieController from '../controllers/movie.controller.js'
 
+import movieController from '../controllers/movie.controller.js'
 import { globalErrorWrapper } from '../utils/globalErrorWrapper.js'
 
 const movieRouter = Router()

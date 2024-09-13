@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { envConfig } from '../config/envConfig.js'
+import { envConfig } from '../config/env.config.js'
 import ApiError from '../models/api/ApiError.js'
 import { StatusCodes } from 'http-status-codes'
 import { AXIOS_ERROR_RESOURCE_NOT_FOUND } from '../constants/messages.js'

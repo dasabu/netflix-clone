@@ -1,6 +1,7 @@
+import bcrypt from 'bcrypt'
+
 import { User } from '../models/user.model.js'
 import { PROFILE_PICS } from '../constants/common.js'
-import bcrypt from 'bcrypt'
 
 export const createNewUser = async (email, password, username) => {
   // random a profile image between 0 - 2
