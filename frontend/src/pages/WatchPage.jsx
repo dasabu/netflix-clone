@@ -66,8 +66,6 @@ const WatchPage = () => {
     getMediaDetails()
   }, [mediaType, id])
 
-  console.log(similarMedia)
-
   // handler method to get next trailer
   const handleNextTrailer = () => {
     if (currentTrailerIndex < trailers.length - 1) {
@@ -81,9 +79,6 @@ const WatchPage = () => {
       setCurrentTrailerIndex(currentTrailerIndex - 1)
     }
   }
-
-  console.log('length: ', trailers.length)
-  console.log('curr index: ', currentTrailerIndex)
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {

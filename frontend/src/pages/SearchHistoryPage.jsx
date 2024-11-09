@@ -41,7 +41,6 @@ const SearchHistoryPage = () => {
       try {
         const response = await axios.get(`/api/v1/search/history`)
         setSearchHistory(response.data.data)
-        console.log(response.data.data)
       } catch (error) {
         setSearchHistory([])
       } finally {
@@ -175,7 +174,6 @@ const SearchHistoryPage = () => {
                 <div
                   key={entry.id}
                   className='min-w-0 bg-gray-800/60 p-4 rounded-lg flex items-start hover:cursor-not-allowed'
-                  onClick={() => setMediaType(entry.searchType)}
                 >
                   <img
                     src={SMALL_IMG_BASE_URL + entry.image}

@@ -17,7 +17,7 @@ const SearchPage = () => {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab)
-    tab === 'movie' ? setMediaType('Movie') : setMediaType('TV Show')
+    if (tab !== 'person') setMediaType(tab)
     setResults([])
   }
 
