@@ -12,7 +12,6 @@ import { User } from '../models/user.model.js'
 class SearchController {
   async searchPerson(req, res) {
     const { query } = req.params
-    console.log(query)
     const response = await fetchFromTMDB(SEARCH_URL.PERSON(query))
     if (response?.results?.length === 0) {
       throw new ApiError(
@@ -112,7 +111,6 @@ class SearchController {
 
   async getSearchHistory(req, res) {
     const data = req.user?.searchHistory
-    console.log(data)
     if (!data) {
       res
         .status(StatusCodes.NOT_FOUND)

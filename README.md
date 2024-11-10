@@ -21,9 +21,9 @@
 - **Get Similar Movies/TV Shows**
 - **And Many More Cool Features**
 
-## Setup .env File
+## Setup `.env` file
 
-To run this application, you need to set up a `.env` file in the root directory with the following variables:
+To run this application, you need to set up a `.env` file in the `backend` directory with the following variables:
 
 ```bash
 MONGODB_URI=
